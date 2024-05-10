@@ -23,8 +23,12 @@ export class WebSocketGatewayConnection
     console.log(`Client disconnected: ${client.id}`);
   }
 
-  @SubscribeMessage('message')
+  @SubscribeMessage('')
   handleMessages(@MessageBody() data: any) {
     console.log({ data });
   }
+
+  /* sendMessageToClient(clientId: string, message: string) {
+    this.server.to(clientId).emit('message', message);
+  } */
 }
